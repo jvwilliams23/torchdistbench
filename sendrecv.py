@@ -90,6 +90,7 @@ if __name__ == "__main__":
         args.resultsname = f"results_sendrecv_world{dist.get_world_size()}.npz"
         if dist.get_rank() == 0:
             np.savez(args.resultsname, **stats_list)
+            np.savetxt(args.resultsname.replace("npz", "txt"), np.c_[stats_list["sizes"], stats_list["median"]])
 
 
 
