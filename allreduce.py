@@ -96,7 +96,7 @@ if __name__ == "__main__":
         for s in ["top", "right"]:
             ax.spines[s].set_visible(False)
         fig.tight_layout()
-        plt.savefig("plot_allreduce.png", dpi=300)
+        plt.savefig(f"plot_allreduce_world{dist.get_world_size()}.png", dpi=300)
 
     try:
         dist.destroy_process_group()
